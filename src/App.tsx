@@ -4,8 +4,6 @@ function App() {
   return (
     <div>
       <Button />
-      <Button />
-      <Button />
     </div>
   );
 }
