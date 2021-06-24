@@ -15,7 +15,7 @@ export function Home() {
   const history = useHistory();
   const { user, signInWithGoogle } = useContext(AuthContext)
 
-  function handleCrateRoom() {
+  async function handleCrateRoom() {
     if (!user) {
       signInWithGoogle()
     }
