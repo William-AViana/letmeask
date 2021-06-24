@@ -1,10 +1,28 @@
+import { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+
+import { AuthContext } from './../App';
+
 import ilustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
-import '../styles/auth.scss'
+
 import { Button } from '../components/Button';
 
+import '../styles/auth.scss'
+
 export function Home() {
+  const history = useHistory();
+  const { user, signInWithGoogle } = useContext(AuthContext)
+
+  function handleCrateRoom() {
+    if (!user) {
+      signInWithGoogle()
+    }
+
+    history.push('/rooms/new');
+  }
+
   return (
     <div id="page-auth">
       <aside>
@@ -15,7 +33,7 @@ export function Home() {
       <main>
         <div className="main-content">
           <img src={logoImg} alt="Logo letmeask" />
-          <button className="create-room">
+          <button onClick={handleCrateRoom} className="create-room">
             <img src={googleIconImg} alt="Logo do Google" />
             Crie sua sala com o google
           </button>
