@@ -5,18 +5,7 @@ import { Home } from './pages/Home';
 import { NewRoom } from './pages/NewRoom';
 import { auth, firebase } from './services/firebase';
 
-type User = {
-  id: string;
-  name: string;
-  avatar: string;
-}
-
-type AuthContextType = {
-  user: User | undefined;
-  signInWithGoogle: () => Promise<void>;
-}
-
-export const AuthContext = createContext({} as AuthContextType);
+import { AuthContextProvider } from './contexts/AuthContext';
 
 function App() {
   const [user, setUser] = useState<User>();
