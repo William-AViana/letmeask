@@ -11,7 +11,7 @@ import '../styles/auth.scss'
 
 export function Home() {
   const history = useHistory();
-  const { user, signInWithGoogle } = useContext(AuthContext)
+  const { user, signInWithGoogle } = useAuth()
 
   async function handleCrateRoom() {
     if (!user) {
