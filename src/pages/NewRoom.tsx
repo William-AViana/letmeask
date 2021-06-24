@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { AuthContext } from './../App';
+import { AuthContext } from '../contexts/AuthContext';
 import { useContext } from 'react';
 
 import ilustrationImg from '../assets/images/illustration.svg';
