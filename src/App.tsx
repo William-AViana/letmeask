@@ -57,7 +57,7 @@ function App() {
       <AuthContextProvider>
         <Route path="/" exact component={Home} />
         <Route path="/rooms/new" component={NewRoom} />
-      </AuthContext.Provider>
+      </AuthContextProvider>
     </BrowserRouter>
   );
 }
