@@ -39,7 +39,6 @@ function App() {
         avatar: photoURL,
       })
     }
-    })
   }
 
   return (
