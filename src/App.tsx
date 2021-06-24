@@ -41,6 +41,7 @@ function App() {
     }
     })
   }
+
   return (
     <BrowserRouter>
       <AuthContext.Provider value={{ user, signInWithGoogle }}>
