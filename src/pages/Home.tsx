@@ -4,7 +4,7 @@ import { FormEvent, useState } from 'react';
 import ilustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
-
+import { database } from '../services/firebase';
 import { useAuth } from './../hooks/useAuth';
 import { Button } from '../components/Button';
 
