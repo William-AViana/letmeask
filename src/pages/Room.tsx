@@ -1,3 +1,5 @@
+import { useParams } from 'react-router-dom';
+
 import logoImg from '../assets/images/logo.svg';
 
 import { Button } from "../components/Button";
