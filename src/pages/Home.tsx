@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom';
+import { FormEvent, useState } from 'react';
 
 import ilustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
