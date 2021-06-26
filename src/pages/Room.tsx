@@ -35,7 +35,61 @@ type RoomParams = {
   id: string;
 }
 export function Room() {
-  const params = useParams<RoomParams>()
+  const { user } = useAuth()
+  const params = useParams<RoomParams>();
+  const [newQuestion, setNewQuestion] = useState('');
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [title, setTitle] = useState('');
+
+  const roomId = params.id;
+
+  useEffect(() => {
+    const roomRef = database.ref(`rooms/${roomId}`);
+
+    roomRef.on('value', room => {
+      const databaseRoom = room.val();
+      const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
+
+      const parsedQuestions = Object.entries(firebaseQuestions).map(([key, value]) => {
+        return {
+          id: key,
+          content: value.content,
+          author: value.author,
+          isHighlighted: value.isHighlighted,
+          isAnswered: value.isAnswered,
+        }
+      })
+
+      setTitle(databaseRoom.title);
+      setQuestions(parsedQuestions);
+    })
+  }, [roomId])
+
+  async function handleSendQuestion(event: FormEvent) {
+    event.preventDefault();
+
+    if (newQuestion.trim() === '') {
+      return;
+    }
+
+    if (!user) {
+      throw new Error('You must be logged in');
+    }
+
+    const question = {
+      content: newQuestion,
+      author: {
+        name: user.name,
+        avatar: user.avatar,
+      },
+      isHilighted: false,
+      isAnswered: false,
+    };
+
+    await database.ref(`rooms/${roomId}/questions`).push(question);
+
+    setNewQuestion('');
+  }
 
   return (
     <div id="page-room">
