@@ -9,6 +9,7 @@ import { useAuth } from './../hooks/useAuth';
 import { Button } from '../components/Button';
 
 import '../styles/auth.scss'
+import { useTheme } from './../hooks/useTheme';
 
 export function Home() {
   const history = useHistory();
