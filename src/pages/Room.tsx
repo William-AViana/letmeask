@@ -116,6 +116,7 @@ export function Room() {
             <Button type="submit">Enviar pergunta</Button>
           </div>
         </form>
+        {JSON.stringify(questions)}
       </main>
     </div>
   );
