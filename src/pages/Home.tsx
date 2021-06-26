@@ -12,6 +12,7 @@ import '../styles/auth.scss'
 import { useTheme } from './../hooks/useTheme';
 
 export function Home() {
+  const { theme, toggleTheme } = useTheme();
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth()
   const [roomCode, setRoomCode] = useState('')
