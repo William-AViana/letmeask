@@ -6,6 +6,29 @@ import { Button } from "../components/Button";
 
 import '../styles/room.scss';
 import { RoomCode } from '../components/RoomCode';
+import { useAuth } from './../hooks/useAuth';
+import { database } from '../services/firebase';
+
+type FirebaseQuestions = Record<string, {
+  author: {
+    name: string;
+    avatar: string;
+  }
+  content: string;
+  isAnswered: boolean;
+  isHighlighted: boolean;
+}>
+
+type Question = {
+  id: string;
+  author: {
+    name: string;
+    avatar: string;
+  }
+  content: string;
+  isAnswered: boolean;
+  isHighlighted: boolean;
+}
 
 type RoomParams = {
   id: string;
