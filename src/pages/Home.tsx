@@ -37,6 +37,12 @@ export function Home() {
       alert('Room does not exists');
       return;
     }
+
+    if (roomRef.exists()) {
+      alert('Room already close.');
+      return;
+    }
+
     history.push(`/rooms/${roomCode}`);
   }
 
