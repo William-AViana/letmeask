@@ -14,6 +14,8 @@ type QuestionProps = {
 export function Question({
   content,
   author,
+  isAnswered = false,
+  isHighlighted = false,
   children,
 }: QuestionProps) {
   return (
